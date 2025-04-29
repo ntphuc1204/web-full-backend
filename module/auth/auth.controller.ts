@@ -7,14 +7,19 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('/login')
-    login(
-          @Body(new ValidationPipe()) request: AuthRequest,
-    ): any {
-      try {
-        console.log(request);
-        return this.authService.attempt();
-        } catch (error) {
-            console.log("Error: ", error);
-        }
-      }
+  login(@Body(new ValidationPipe()) request: AuthRequest): any {
+    try {
+      console.log(request);
+      return this.authService.attempt();
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  }
+
+  @Get('/user-info')
+  getUser() {
+    return ['phucs', 'trong'];
+  }
+  
 }
+

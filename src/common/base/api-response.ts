@@ -34,7 +34,7 @@ export class ApiResponse{
     static message<T>(
         message: string = '',
         httpStatus: number = HttpStatus.INTERNAL_SERVER_ERROR
-    ): Record<string, any> { 
+    ): Record<string, any> {
         return {
             [ApiResponseKey.CODE]: httpStatus === HttpStatus.OK||httpStatus === HttpStatus.INTERNAL_SERVER_ERROR,
             [ApiResponseKey.MESSAGE]: message,
